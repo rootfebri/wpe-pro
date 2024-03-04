@@ -1,0 +1,84 @@
+# Ignored directories
+bin/*/
+obj/
+ipch/
+Win32/
+x64/
+release/
+build/
+gui_build/
+debug/
+*XE Results*/
+doxygen*/
+doc/
+COV/
+minidump/
+CppDependOut/
+.vs/
+.vscode/
+
+# Global filetypes to ignore
+*.depend
+*.layout
+*.patch
+*.cscope_file_list
+*.bmarks
+*.chw
+*.cbTemp
+*.opensdf
+*.sdf
+*.suo
+*.VC.opendb
+*.autosave
+*.~vsd
+*.dll
+*.exe
+*.pro.user.*
+*.vcxproj.user
+*.orig
+cov-int*
+*.pdb
+ui_*
+*.aps
+*.pro.user
+.DS_Store
+*.ipgset
+pin.log*
+*.cdproj
+src/gui/Translations/*.qm
+x64dbg.VC.db
+
+# Project to ignore
+help/x64*dbg.chm
+help/output/
+bin/x64*dbg.chm
+bin/win32.*
+bin/x*.unicode.txt
+
+# Debugger files to ignore
+CppCheckResults.xml
+src/dbg/ODbgScript.chm
+src/dbg/ODbgScript.chw
+
+# GUI files
+src/gui/build
+src/gui/Makefile*
+tools/
+RCa*
+RDa*
+RDb*
+src/build-*/
+
+# Exceptions
+!/hooks/AStyleHelper.exe
+!/hooks/AStyle.dll
+!/bin/x64dbg_shell_remove.reg
+!/bin/themes/
+!*.lib
+.scannerwork/
+bw-output/
+build-wrapper*
+My Amplifier Results - */
+My Inspector Results - */
+/bin/x96dbg.ini
+/src/gui/msvc_make.bat

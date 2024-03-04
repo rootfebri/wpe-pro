@@ -1,0 +1,1562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>868</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>x64dbg</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>868</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <widget class="QMenu" name="menuRecentFiles">
+     <property name="title">
+      <string>&amp;Recent Files</string>
+     </property>
+     <property name="icon">
+      <iconset theme="recentfiles" resource="../../resource.qrc">
+       <normaloff>:/Default/icons/recentfiles.png</normaloff>:/Default/icons/recentfiles.png</iconset>
+     </property>
+     <addaction name="separator"/>
+    </widget>
+    <widget class="QMenu" name="menuDatabase">
+     <property name="title">
+      <string>Database</string>
+     </property>
+     <property name="icon">
+      <iconset theme="data-copy" resource="../../resource.qrc">
+       <normaloff>:/Default/icons/data-copy.png</normaloff>:/Default/icons/data-copy.png</iconset>
+     </property>
+     <addaction name="actionDbsave"/>
+     <addaction name="actionDbload"/>
+     <addaction name="actionDbrecovery"/>
+     <addaction name="actionDbclear"/>
+     <addaction name="separator"/>
+     <addaction name="actionImportdatabase"/>
+     <addaction name="actionExportdatabase"/>
+    </widget>
+    <addaction name="actionOpen"/>
+    <addaction name="menuRecentFiles"/>
+    <addaction name="actionAttach"/>
+    <addaction name="actionDetach"/>
+    <addaction name="menuDatabase"/>
+    <addaction name="actionPatches"/>
+    <addaction name="actionChangeCommandLine"/>
+    <addaction name="actionRestartAdmin"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="actionCpu"/>
+    <addaction name="actionLog"/>
+    <addaction name="actionNotes"/>
+    <addaction name="actionBreakpoints"/>
+    <addaction name="actionMemoryMap"/>
+    <addaction name="actionCallStack"/>
+    <addaction name="actionSEHChain"/>
+    <addaction name="actionScript"/>
+    <addaction name="actionSymbolInfo"/>
+    <addaction name="actionModules"/>
+    <addaction name="actionSource"/>
+    <addaction name="actionReferences"/>
+    <addaction name="actionThreads"/>
+    <addaction name="actionHandles"/>
+    <addaction name="actionGraph"/>
+    <addaction name="actionTrace"/>
+    <addaction name="actionPatches"/>
+    <addaction name="actionComments"/>
+    <addaction name="actionLabels"/>
+    <addaction name="actionBookmarks"/>
+    <addaction name="actionFunctions"/>
+    <addaction name="actionVariables"/>
+    <addaction name="actionCommand"/>
+    <addaction name="separator"/>
+    <addaction name="actionPreviousTab"/>
+    <addaction name="actionNextTab"/>
+    <addaction name="actionPreviousView"/>
+    <addaction name="actionNextView"/>
+    <addaction name="actionHideTab"/>
+   </widget>
+   <widget class="QMenu" name="menuDebug">
+    <property name="title">
+     <string>&amp;Debug</string>
+    </property>
+    <widget class="QMenu" name="menuAdvanced">
+     <property name="title">
+      <string>Advanced</string>
+     </property>
+     <property name="icon">
+      <iconset theme="branchpreview" resource="../../resource.qrc">
+       <normaloff>:/Default/icons/branchpreview.png</normaloff>:/Default/icons/branchpreview.png</iconset>
+     </property>
+     <addaction name="actioneRun"/>
+     <addaction name="actionseRun"/>
+     <addaction name="actionRunExpression"/>
+     <addaction name="separator"/>
+     <addaction name="actioneStepInto"/>
+     <addaction name="actionseStepInto"/>
+     <addaction name="actionStepIntoSource"/>
+     <addaction name="actioneStepOver"/>
+     <addaction name="actionseStepOver"/>
+     <addaction name="actionStepOverSource"/>
+     <addaction name="separator"/>
+     <addaction name="actioneRtr"/>
+     <addaction name="actionSkipNextInstruction"/>
+     <addaction name="actionInstrUndo"/>
+     <addaction name="separator"/>
+     <addaction name="actionHideDebugger"/>
+    </widget>
+    <addaction name="actionRun"/>
+    <addaction name="actionRunSelection"/>
+    <addaction name="actionPause"/>
+    <addaction name="actionRestart"/>
+    <addaction name="actionClose"/>
+    <addaction name="separator"/>
+    <addaction name="actionStepInto"/>
+    <addaction name="actionStepOver"/>
+    <addaction name="separator"/>
+    <addaction name="actionRtr"/>
+    <addaction name="actionRtu"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="menuAdvanced"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionCalculator"/>
+    <addaction name="actionCheckUpdates"/>
+    <addaction name="actionBlog"/>
+    <addaction name="actionDonate"/>
+    <addaction name="actionReportBug"/>
+    <addaction name="actionPlugins"/>
+    <addaction name="separator"/>
+    <addaction name="actionManual"/>
+    <addaction name="actionFaq"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionAbout_Qt"/>
+    <addaction name="separator"/>
+    <addaction name="actionCrashDump"/>
+   </widget>
+   <widget class="QMenu" name="menuPlugins">
+    <property name="title">
+     <string>&amp;Plugins</string>
+    </property>
+    <addaction name="actionScylla"/>
+   </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>&amp;Options</string>
+    </property>
+    <widget class="QMenu" name="menuTheme">
+     <property name="title">
+      <string>&amp;Theme</string>
+     </property>
+     <property name="icon">
+      <iconset theme="themes" resource="../../resource.qrc">
+       <normaloff>:/Default/icons/themes.png</normaloff>:/Default/icons/themes.png</iconset>
+     </property>
+     <addaction name="actionDefaultTheme"/>
+    </widget>
+    <addaction name="actionSettings"/>
+    <addaction name="actionAppearance"/>
+    <addaction name="actionShortcuts"/>
+    <addaction name="actionCustomizeMenus"/>
+    <addaction name="actionTopmost"/>
+    <addaction name="actionReloadStylesheet"/>
+    <addaction name="actionSetInitializationScript"/>
+    <addaction name="actionImportSettings"/>
+    <addaction name="menuTheme"/>
+   </widget>
+   <widget class="QMenu" name="menuFavourites">
+    <property name="title">
+     <string>Favour&amp;ites</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Trace">
+    <property name="title">
+     <string>Traci&amp;ng</string>
+    </property>
+    <widget class="QMenu" name="menuTrace_record">
+     <property name="title">
+      <string>Trace &amp;coverage</string>
+     </property>
+     <property name="icon">
+      <iconset theme="trace" resource="../../resource.qrc">
+       <normaloff>:/Default/icons/trace.png</normaloff>:/Default/icons/trace.png</iconset>
+     </property>
+     <addaction name="actionTRBit"/>
+     <addaction name="actionTRByte"/>
+     <addaction name="actionTRWord"/>
+     <addaction name="actionTRNone"/>
+     <addaction name="separator"/>
+     <addaction name="actionTRTIBT"/>
+     <addaction name="actionTRTOBT"/>
+     <addaction name="actionTRTIIT"/>
+     <addaction name="actionTRTOIT"/>
+    </widget>
+    <addaction name="actionTicnd"/>
+    <addaction name="actionTocnd"/>
+    <addaction name="menuTrace_record"/>
+    <addaction name="separator"/>
+    <addaction name="actionAnimateInto"/>
+    <addaction name="actionAnimateOver"/>
+    <addaction name="actionAnimateCommand"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuDebug"/>
+   <addaction name="menu_Trace"/>
+   <addaction name="menuPlugins"/>
+   <addaction name="menuFavourites"/>
+   <addaction name="menuOptions"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="windowTitle">
+    <string>Toolbar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen"/>
+   <addaction name="actionRestart"/>
+   <addaction name="actionClose"/>
+   <addaction name="separator"/>
+   <addaction name="actionRun"/>
+   <addaction name="actionPause"/>
+   <addaction name="separator"/>
+   <addaction name="actionStepInto"/>
+   <addaction name="actionStepOver"/>
+   <addaction name="separator"/>
+   <addaction name="actionTicnd"/>
+   <addaction name="actionTocnd"/>
+   <addaction name="separator"/>
+   <addaction name="actionRtr"/>
+   <addaction name="actionRtu"/>
+   <addaction name="separator"/>
+   <addaction name="actionScylla"/>
+   <addaction name="separator"/>
+   <addaction name="actionPatches"/>
+   <addaction name="actionComments"/>
+   <addaction name="actionLabels"/>
+   <addaction name="actionBookmarks"/>
+   <addaction name="actionFunctions"/>
+   <addaction name="actionVariables"/>
+   <addaction name="separator"/>
+   <addaction name="actionStrings"/>
+   <addaction name="actionCalls"/>
+   <addaction name="separator"/>
+   <addaction name="actionCalculator"/>
+   <addaction name="actionCheckUpdates"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="cmdBar">
+   <property name="windowTitle">
+    <string>CommandBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::BottomToolBarArea</set>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>BottomToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset theme="folder-horizontal-open" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/folder-horizontal-open.png</normaloff>:/Default/icons/folder-horizontal-open.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+   <property name="statusTip">
+    <string>Run the file and start debugging.</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset theme="control-exit" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/control-exit.png</normaloff>:/Default/icons/control-exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit x64dbg.</string>
+   </property>
+  </action>
+  <action name="actionRun">
+   <property name="icon">
+    <iconset theme="arrow-run" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-run.png</normaloff>:/Default/icons/arrow-run.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Run</string>
+   </property>
+   <property name="statusTip">
+    <string>Run the debuggee or restart debugging.</string>
+   </property>
+  </action>
+  <action name="actionPause">
+   <property name="icon">
+    <iconset theme="control-pause" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/control-pause.png</normaloff>:/Default/icons/control-pause.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Pause</string>
+   </property>
+   <property name="statusTip">
+    <string>Pause the execution of debuggee to debug it, or stop animate into/animate over.</string>
+   </property>
+  </action>
+  <action name="actionRestart">
+   <property name="icon">
+    <iconset theme="arrow-restart" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-restart.png</normaloff>:/Default/icons/arrow-restart.png</iconset>
+   </property>
+   <property name="text">
+    <string>Re&amp;start</string>
+   </property>
+   <property name="statusTip">
+    <string>Stop the debuggee and restart it, or restart the last debugged file.</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset theme="control-stop" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/control-stop.png</normaloff>:/Default/icons/control-stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Close</string>
+   </property>
+   <property name="statusTip">
+    <string>Terminate the debuggee and stop debugging.</string>
+   </property>
+  </action>
+  <action name="actionStepInto">
+   <property name="icon">
+    <iconset theme="arrow-step-into" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-into.png</normaloff>:/Default/icons/arrow-step-into.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step &amp;into</string>
+   </property>
+   <property name="statusTip">
+    <string>Execute a single instruction</string>
+   </property>
+  </action>
+  <action name="actionStepOver">
+   <property name="icon">
+    <iconset theme="arrow-step-over" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-over.png</normaloff>:/Default/icons/arrow-step-over.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step &amp;over</string>
+   </property>
+   <property name="statusTip">
+    <string>Execute a single instruction without entering the CALL instruction</string>
+   </property>
+  </action>
+  <action name="actionCommand">
+   <property name="icon">
+    <iconset theme="terminal-command" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/terminal-command.png</normaloff>:/Default/icons/terminal-command.png</iconset>
+   </property>
+   <property name="text">
+    <string>Co&amp;mmand</string>
+   </property>
+   <property name="statusTip">
+    <string>Focus on the command bar</string>
+   </property>
+  </action>
+  <action name="actionRtr">
+   <property name="icon">
+    <iconset theme="arrow-step-rtr" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-rtr.png</normaloff>:/Default/icons/arrow-step-rtr.png</iconset>
+   </property>
+   <property name="text">
+    <string>E&amp;xecute till return</string>
+   </property>
+   <property name="statusTip">
+    <string>Trace over until the RET instruction would be executed and stack pointer is less than or equal to current value.</string>
+   </property>
+  </action>
+  <action name="actionMemoryMap">
+   <property name="icon">
+    <iconset theme="memory-map" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/memory-map.png</normaloff>:/Default/icons/memory-map.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Memory Map</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Memory Map tab.</string>
+   </property>
+  </action>
+  <action name="actionLog">
+   <property name="icon">
+    <iconset theme="log" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/log.png</normaloff>:/Default/icons/log.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Log Window</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Log tab.</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset theme="information" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/information.png</normaloff>:/Default/icons/information.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+   <property name="statusTip">
+    <string>Display information about x64dbg</string>
+   </property>
+  </action>
+  <action name="actionScylla">
+   <property name="icon">
+    <iconset theme="scylla" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/scylla.png</normaloff>:/Default/icons/scylla.png</iconset>
+   </property>
+   <property name="text">
+    <string>Scylla</string>
+   </property>
+  </action>
+  <action name="actionBreakpoints">
+   <property name="icon">
+    <iconset theme="breakpoint" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/breakpoint.png</normaloff>:/Default/icons/breakpoint.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Breakpoints</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Breakpoints tab.</string>
+   </property>
+  </action>
+  <action name="actioneStepInto">
+   <property name="icon">
+    <iconset theme="arrow-step-into" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-into.png</normaloff>:/Default/icons/arrow-step-into.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step into (pass all exceptions)</string>
+   </property>
+   <property name="statusTip">
+    <string>Execute a single instruction, pass exceptions to the debuggee.</string>
+   </property>
+  </action>
+  <action name="actioneStepOver">
+   <property name="icon">
+    <iconset theme="arrow-step-over" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-over.png</normaloff>:/Default/icons/arrow-step-over.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step over (pass all exceptions)</string>
+   </property>
+  </action>
+  <action name="actioneRun">
+   <property name="icon">
+    <iconset theme="arrow-run" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-run.png</normaloff>:/Default/icons/arrow-run.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run (pass all exceptions)</string>
+   </property>
+   <property name="statusTip">
+    <string>Run the debuggee and pass all exceptions to the debuggee without pausing.</string>
+   </property>
+  </action>
+  <action name="actioneRtr">
+   <property name="icon">
+    <iconset theme="arrow-step-rtr" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-rtr.png</normaloff>:/Default/icons/arrow-step-rtr.png</iconset>
+   </property>
+   <property name="text">
+    <string>Execute till return (pass all exceptions)</string>
+   </property>
+  </action>
+  <action name="actionScript">
+   <property name="icon">
+    <iconset theme="script-code" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/script-code.png</normaloff>:/Default/icons/script-code.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Script</string>
+   </property>
+   <property name="toolTip">
+    <string>Script</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Script tab.</string>
+   </property>
+  </action>
+  <action name="actionRunSelection">
+   <property name="icon">
+    <iconset theme="arrow-run-cursor" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-run-cursor.png</normaloff>:/Default/icons/arrow-run-cursor.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run &amp;until selection</string>
+   </property>
+   <property name="toolTip">
+    <string>Run until selection</string>
+   </property>
+   <property name="statusTip">
+    <string>Put a breakpoint on selection and run the debuggee.</string>
+   </property>
+  </action>
+  <action name="actionCpu">
+   <property name="icon">
+    <iconset theme="processor64" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/processor64.png</normaloff>:/Default/icons/processor64.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;CPU</string>
+   </property>
+   <property name="toolTip">
+    <string>CPU</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the CPU tab to display the disassembly.</string>
+   </property>
+  </action>
+  <action name="actionSymbolInfo">
+   <property name="icon">
+    <iconset theme="pdb" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/pdb.png</normaloff>:/Default/icons/pdb.png</iconset>
+   </property>
+   <property name="text">
+    <string>Symbol &amp;Info</string>
+   </property>
+   <property name="toolTip">
+    <string>Symbol Info</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Symbols tab.</string>
+   </property>
+  </action>
+  <action name="actionReferences">
+   <property name="icon">
+    <iconset theme="search" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/search.png</normaloff>:/Default/icons/search.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;References</string>
+   </property>
+   <property name="toolTip">
+    <string>References</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the References tab.</string>
+   </property>
+  </action>
+  <action name="actionThreads">
+   <property name="icon">
+    <iconset theme="arrow-threads" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-threads.png</normaloff>:/Default/icons/arrow-threads.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Threads</string>
+   </property>
+   <property name="toolTip">
+    <string>Threads</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Threads tab.</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset theme="settings" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/settings.png</normaloff>:/Default/icons/settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Preferences</string>
+   </property>
+   <property name="toolTip">
+    <string>Preferences</string>
+   </property>
+   <property name="statusTip">
+    <string>Opem the Preferences dialog.</string>
+   </property>
+  </action>
+  <action name="actionStrings">
+   <property name="icon">
+    <iconset theme="strings" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/strings.png</normaloff>:/Default/icons/strings.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Find Strings</string>
+   </property>
+   <property name="toolTip">
+    <string>Find Strings</string>
+   </property>
+   <property name="statusTip">
+    <string>Find possible strings in the current module. Equivalent command &quot;strref&quot;</string>
+   </property>
+  </action>
+  <action name="actionAppearance">
+   <property name="icon">
+    <iconset theme="color-swatches" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/color-swatches.png</normaloff>:/Default/icons/color-swatches.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Appearance</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the Appearance dialog to adjust color and font settings.</string>
+   </property>
+  </action>
+  <action name="actionCalls">
+   <property name="icon">
+    <iconset theme="call" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/call.png</normaloff>:/Default/icons/call.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find Intermodular Calls</string>
+   </property>
+   <property name="toolTip">
+    <string>Find Intermodular Calls</string>
+   </property>
+   <property name="statusTip">
+    <string>Find intermodular calls in the current module. Equivalent command &quot;modcallfind&quot;</string>
+   </property>
+  </action>
+  <action name="actionPatches">
+   <property name="icon">
+    <iconset theme="patch" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/patch.png</normaloff>:/Default/icons/patch.png</iconset>
+   </property>
+   <property name="text">
+    <string>Patch file...</string>
+   </property>
+   <property name="toolTip">
+    <string>Patches</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the patch dialog.</string>
+   </property>
+  </action>
+  <action name="actionComments">
+   <property name="icon">
+    <iconset theme="comments" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/comments.png</normaloff>:/Default/icons/comments.png</iconset>
+   </property>
+   <property name="text">
+    <string>Comments</string>
+   </property>
+   <property name="statusTip">
+    <string>Show a list of comments. Equivalent command &quot;commentlist&quot;</string>
+   </property>
+  </action>
+  <action name="actionLabels">
+   <property name="icon">
+    <iconset theme="labels" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/labels.png</normaloff>:/Default/icons/labels.png</iconset>
+   </property>
+   <property name="text">
+    <string>Labels</string>
+   </property>
+   <property name="statusTip">
+    <string>Show a list of labels. Equivalent command &quot;labellist&quot;</string>
+   </property>
+  </action>
+  <action name="actionBookmarks">
+   <property name="icon">
+    <iconset theme="bookmarks" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/bookmarks.png</normaloff>:/Default/icons/bookmarks.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bookmarks</string>
+   </property>
+   <property name="statusTip">
+    <string>Show a list of bookmarks. Equivalent command &quot;bookmarklist&quot;</string>
+   </property>
+  </action>
+  <action name="actionFunctions">
+   <property name="icon">
+    <iconset theme="functions" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/functions.png</normaloff>:/Default/icons/functions.png</iconset>
+   </property>
+   <property name="text">
+    <string>Functions</string>
+   </property>
+   <property name="statusTip">
+    <string>Show a list of functions. Equivalent command &quot;functionlist&quot;</string>
+   </property>
+  </action>
+  <action name="actionCheckUpdates">
+   <property name="icon">
+    <iconset theme="update" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/update.png</normaloff>:/Default/icons/update.png</iconset>
+   </property>
+   <property name="text">
+    <string>Check for &amp;Updates</string>
+   </property>
+   <property name="statusTip">
+    <string>Connect to Github to check for updates</string>
+   </property>
+  </action>
+  <action name="actionCallStack">
+   <property name="icon">
+    <iconset theme="callstack" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/callstack.png</normaloff>:/Default/icons/callstack.png</iconset>
+   </property>
+   <property name="text">
+    <string>Call Stack</string>
+   </property>
+   <property name="toolTip">
+    <string>Call Stack</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Call Stack tab.</string>
+   </property>
+  </action>
+  <action name="actionShortcuts">
+   <property name="icon">
+    <iconset theme="shortcut" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/shortcut.png</normaloff>:/Default/icons/shortcut.png</iconset>
+   </property>
+   <property name="text">
+    <string>Hotkeys</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the Hotkeys dialog to customize keyboard hotkeys.</string>
+   </property>
+  </action>
+  <action name="actionDonate">
+   <property name="icon">
+    <iconset theme="donate" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/donate.png</normaloff>:/Default/icons/donate.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Donate</string>
+   </property>
+   <property name="toolTip">
+    <string>Donate</string>
+   </property>
+   <property name="statusTip">
+    <string>Open http://donate.x64dbg.com</string>
+   </property>
+  </action>
+  <action name="actionCalculator">
+   <property name="icon">
+    <iconset theme="calculator" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/calculator.png</normaloff>:/Default/icons/calculator.png</iconset>
+   </property>
+   <property name="text">
+    <string>Calculator</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the Calculator dialog.</string>
+   </property>
+  </action>
+  <action name="actionAttach">
+   <property name="icon">
+    <iconset theme="attach" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/attach.png</normaloff>:/Default/icons/attach.png</iconset>
+   </property>
+   <property name="text">
+    <string>Attach</string>
+   </property>
+   <property name="toolTip">
+    <string>Attach</string>
+   </property>
+   <property name="statusTip">
+    <string>Attach the debugger to a process to debug it.</string>
+   </property>
+  </action>
+  <action name="actionDetach">
+   <property name="icon">
+    <iconset theme="detach" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/detach.png</normaloff>:/Default/icons/detach.png</iconset>
+   </property>
+   <property name="text">
+    <string>Detach</string>
+   </property>
+   <property name="toolTip">
+    <string>Detach</string>
+   </property>
+   <property name="statusTip">
+    <string>Detach from the debuggee so that it continues running without being debugged.</string>
+   </property>
+  </action>
+  <action name="actionChangeCommandLine">
+   <property name="icon">
+    <iconset theme="changeargs" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/changeargs.png</normaloff>:/Default/icons/changeargs.png</iconset>
+   </property>
+   <property name="text">
+    <string>Change Command &amp;Line</string>
+   </property>
+   <property name="statusTip">
+    <string>Set the command line of the debuggee.</string>
+   </property>
+  </action>
+  <action name="actionSkipNextInstruction">
+   <property name="icon">
+    <iconset theme="arrow-skip" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-skip.png</normaloff>:/Default/icons/arrow-skip.png</iconset>
+   </property>
+   <property name="text">
+    <string>Skip next instruction</string>
+   </property>
+   <property name="toolTip">
+    <string>Skip next instruction</string>
+   </property>
+  </action>
+  <action name="actionTopmost">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset theme="topmost" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/topmost.png</normaloff>:/Default/icons/topmost.png</iconset>
+   </property>
+   <property name="text">
+    <string>Topmost</string>
+   </property>
+   <property name="toolTip">
+    <string>Topmost Window</string>
+   </property>
+   <property name="statusTip">
+    <string>Make x64dbg topmost</string>
+   </property>
+  </action>
+  <action name="actionReportBug">
+   <property name="icon">
+    <iconset theme="bug-report" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/bug-report.png</normaloff>:/Default/icons/bug-report.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Report Bug</string>
+   </property>
+   <property name="toolTip">
+    <string>Report Bug</string>
+   </property>
+   <property name="statusTip">
+    <string>Open http://report.x64dbg.com</string>
+   </property>
+  </action>
+  <action name="actionSource">
+   <property name="icon">
+    <iconset theme="source" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/source.png</normaloff>:/Default/icons/source.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Source</string>
+   </property>
+   <property name="toolTip">
+    <string>Source</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Source tab.</string>
+   </property>
+  </action>
+  <action name="actionManual">
+   <property name="icon">
+    <iconset theme="win-help" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/win-help.png</normaloff>:/Default/icons/win-help.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Manual</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the CHM manual or online documentation at http://help.x64dbg.com</string>
+   </property>
+  </action>
+  <action name="actionFaq">
+   <property name="icon">
+    <iconset theme="faq" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/faq.png</normaloff>:/Default/icons/faq.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;FAQ</string>
+   </property>
+   <property name="toolTip">
+    <string>FAQ</string>
+   </property>
+   <property name="statusTip">
+    <string>Open http://faq.x64dbg.com</string>
+   </property>
+  </action>
+  <action name="actionSEHChain">
+   <property name="icon">
+    <iconset theme="seh-chain" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/seh-chain.png</normaloff>:/Default/icons/seh-chain.png</iconset>
+   </property>
+   <property name="text">
+    <string>SEH Chain</string>
+   </property>
+  </action>
+  <action name="actionHideDebugger">
+   <property name="icon">
+    <iconset theme="hide-debugger" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/hide-debugger.png</normaloff>:/Default/icons/hide-debugger.png</iconset>
+   </property>
+   <property name="text">
+    <string>Hide debugger (PEB)</string>
+   </property>
+   <property name="toolTip">
+    <string>Hide debugger (PEB)</string>
+   </property>
+   <property name="statusTip">
+    <string>Modifies the PEB to hide debugger.</string>
+   </property>
+  </action>
+  <action name="actionReloadStylesheet">
+   <property name="icon">
+    <iconset theme="css" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/css.png</normaloff>:/Default/icons/css.png</iconset>
+   </property>
+   <property name="text">
+    <string>Reload style.css</string>
+   </property>
+   <property name="toolTip">
+    <string>Reload style.css</string>
+   </property>
+   <property name="statusTip">
+    <string>Read style.css from disk to apply theme changes.</string>
+   </property>
+  </action>
+  <action name="actionNotes">
+   <property name="icon">
+    <iconset theme="notes" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/notes.png</normaloff>:/Default/icons/notes.png</iconset>
+   </property>
+   <property name="text">
+    <string>Notes</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Notes tab.</string>
+   </property>
+  </action>
+  <action name="actionHandles">
+   <property name="icon">
+    <iconset theme="handles" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/handles.png</normaloff>:/Default/icons/handles.png</iconset>
+   </property>
+   <property name="text">
+    <string>Handles</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Handles tab.</string>
+   </property>
+  </action>
+  <action name="actionTocnd">
+   <property name="icon">
+    <iconset theme="traceover" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/traceover.png</normaloff>:/Default/icons/traceover.png</iconset>
+   </property>
+   <property name="text">
+    <string>Trace over...</string>
+   </property>
+   <property name="toolTip">
+    <string>Trace over...</string>
+   </property>
+   <property name="statusTip">
+    <string>Step over until a condition becomes true, and optionally log and execute commands when tracing. Equivalent command &quot;tocnd&quot;</string>
+   </property>
+  </action>
+  <action name="actionTicnd">
+   <property name="icon">
+    <iconset theme="traceinto" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/traceinto.png</normaloff>:/Default/icons/traceinto.png</iconset>
+   </property>
+   <property name="text">
+    <string>Trace into...</string>
+   </property>
+   <property name="toolTip">
+    <string>Trace into...</string>
+   </property>
+   <property name="statusTip">
+    <string>Step into until a condition becomes true, and optionally log and execute commands when tracing. Equivalent command &quot;ticnd&quot;</string>
+   </property>
+  </action>
+  <action name="actionTRBit">
+   <property name="icon">
+    <iconset theme="bit" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/bit.png</normaloff>:/Default/icons/bit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bit</string>
+   </property>
+   <property name="statusTip">
+    <string>Enable trace coverage with 1 bit (whether an instruction was executed or not)</string>
+   </property>
+  </action>
+  <action name="actionTRByte">
+   <property name="icon">
+    <iconset theme="byte" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/byte.png</normaloff>:/Default/icons/byte.png</iconset>
+   </property>
+   <property name="text">
+    <string>Byte</string>
+   </property>
+   <property name="statusTip">
+    <string>Enable trace coverage with 1 byte to record how many times an instruction has been executed.</string>
+   </property>
+  </action>
+  <action name="actionTRWord">
+   <property name="icon">
+    <iconset theme="word" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/word.png</normaloff>:/Default/icons/word.png</iconset>
+   </property>
+   <property name="text">
+    <string>Word</string>
+   </property>
+   <property name="statusTip">
+    <string>Enable trace coverage with 1 word to record how many times an instruction has been executed.</string>
+   </property>
+  </action>
+  <action name="actionTRTIBT">
+   <property name="icon">
+    <iconset theme="traceinto" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/traceinto.png</normaloff>:/Default/icons/traceinto.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step into until reaching uncovered code</string>
+   </property>
+   <property name="statusTip">
+    <string>Step into until reaching an instruction that was not covered before. Equivalent command &quot;tibt&quot;</string>
+   </property>
+  </action>
+  <action name="actionTRTOBT">
+   <property name="icon">
+    <iconset theme="traceover" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/traceover.png</normaloff>:/Default/icons/traceover.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step over until reaching uncovered code</string>
+   </property>
+   <property name="statusTip">
+    <string>Step over until reaching an instruction that was not covered before. Equivalent command &quot;tobt&quot;</string>
+   </property>
+  </action>
+  <action name="actionTRTIIT">
+   <property name="icon">
+    <iconset theme="arrow-step-into" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-into.png</normaloff>:/Default/icons/arrow-step-into.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step into until reaching covered code</string>
+   </property>
+   <property name="statusTip">
+    <string>Step into until reaching an instruction that has been covered before. Equivalent command &quot;tiit&quot;</string>
+   </property>
+  </action>
+  <action name="actionTRTOIT">
+   <property name="icon">
+    <iconset theme="arrow-step-over" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-over.png</normaloff>:/Default/icons/arrow-step-over.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step over until reaching covered code</string>
+   </property>
+   <property name="statusTip">
+    <string>Step over until reaching an instruction that has been covered before. Equivalent command &quot;toit&quot;</string>
+   </property>
+  </action>
+  <action name="actionTRNone">
+   <property name="icon">
+    <iconset theme="close-all-tabs" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/close-all-tabs.png</normaloff>:/Default/icons/close-all-tabs.png</iconset>
+   </property>
+   <property name="text">
+    <string>Disable</string>
+   </property>
+   <property name="statusTip">
+    <string>Disable trace coverage</string>
+   </property>
+  </action>
+  <action name="actionRtu">
+   <property name="icon">
+    <iconset theme="runtouser" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/runtouser.png</normaloff>:/Default/icons/runtouser.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run to &amp;user code</string>
+   </property>
+   <property name="statusTip">
+    <string>Trace over until user code would be executed.</string>
+   </property>
+  </action>
+  <action name="actionRunExpression">
+   <property name="icon">
+    <iconset theme="arrow-run-cursor" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-run-cursor.png</normaloff>:/Default/icons/arrow-run-cursor.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run until e&amp;xpression</string>
+   </property>
+  </action>
+  <action name="actionInstrUndo">
+   <property name="icon">
+    <iconset theme="undo" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/undo.png</normaloff>:/Default/icons/undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Undo last instruction</string>
+   </property>
+  </action>
+  <action name="actionCrashDump">
+   <property name="icon">
+    <iconset theme="crash_dump" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/crash_dump.png</normaloff>:/Default/icons/crash_dump.png</iconset>
+   </property>
+   <property name="text">
+    <string>Generate crash dump</string>
+   </property>
+  </action>
+  <action name="actionManageFavourite">
+   <property name="icon">
+    <iconset theme="star" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/star.png</normaloff>:/Default/icons/star.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Manage Favourite Tools...</string>
+   </property>
+  </action>
+  <action name="actionStepOverSource">
+   <property name="icon">
+    <iconset theme="arrow-step-over" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-over.png</normaloff>:/Default/icons/arrow-step-over.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step over (source)</string>
+   </property>
+   <property name="statusTip">
+    <string>Execute a single line of source code without entering the subroutine. Equivalent to &quot;TraceOverConditional src.line(cip) &amp;&amp; !src.disp(cip)&quot;</string>
+   </property>
+  </action>
+  <action name="actionStepIntoSource">
+   <property name="icon">
+    <iconset theme="arrow-step-into" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-into.png</normaloff>:/Default/icons/arrow-step-into.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step into (source)</string>
+   </property>
+   <property name="statusTip">
+    <string>Execute a single source code line. Equivalent to &quot;TraceIntoConditional src.line(cip) &amp;&amp; !src.disp(cip)&quot;</string>
+   </property>
+  </action>
+  <action name="actionGraph">
+   <property name="icon">
+    <iconset theme="graph" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/graph.png</normaloff>:/Default/icons/graph.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Graph</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the CPU tab and switch to Graph mode.</string>
+   </property>
+  </action>
+  <action name="actionseStepInto">
+   <property name="icon">
+    <iconset theme="arrow-step-into" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-into.png</normaloff>:/Default/icons/arrow-step-into.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step into (swallow exception)</string>
+   </property>
+   <property name="statusTip">
+    <string/>
+   </property>
+  </action>
+  <action name="actionseStepOver">
+   <property name="icon">
+    <iconset theme="arrow-step-over" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-step-over.png</normaloff>:/Default/icons/arrow-step-over.png</iconset>
+   </property>
+   <property name="text">
+    <string>Step over (swallow exception)</string>
+   </property>
+  </action>
+  <action name="actionseRun">
+   <property name="icon">
+    <iconset theme="arrow-run" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-run.png</normaloff>:/Default/icons/arrow-run.png</iconset>
+   </property>
+   <property name="text">
+    <string>Run (swallow exception)</string>
+   </property>
+   <property name="statusTip">
+    <string>Run the debuggee and ignore all exceptions so the debuggee will not process the exception.</string>
+   </property>
+  </action>
+  <action name="actionBlog">
+   <property name="icon">
+    <iconset theme="hex" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/hex.png</normaloff>:/Default/icons/hex.png</iconset>
+   </property>
+   <property name="text">
+    <string>Blog</string>
+   </property>
+   <property name="statusTip">
+    <string>Open http://blog.x64dbg.com</string>
+   </property>
+  </action>
+  <action name="actionAnimateInto">
+   <property name="icon">
+    <iconset theme="animateinto" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/animateinto.png</normaloff>:/Default/icons/animateinto.png</iconset>
+   </property>
+   <property name="text">
+    <string>Animate into</string>
+   </property>
+   <property name="statusTip">
+    <string>Execute the step into command at a fixed pace</string>
+   </property>
+  </action>
+  <action name="actionAnimateOver">
+   <property name="icon">
+    <iconset theme="animateover" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/animateover.png</normaloff>:/Default/icons/animateover.png</iconset>
+   </property>
+   <property name="text">
+    <string>Animate over</string>
+   </property>
+   <property name="statusTip">
+    <string>Execute the step over command at a fixed pace</string>
+   </property>
+  </action>
+  <action name="actionAnimateCommand">
+   <property name="icon">
+    <iconset theme="animatecommand" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/animatecommand.png</normaloff>:/Default/icons/animatecommand.png</iconset>
+   </property>
+   <property name="text">
+    <string>Animate command...</string>
+   </property>
+   <property name="statusTip">
+    <string>Execute a command at a fixed pace</string>
+   </property>
+  </action>
+  <action name="actionSetInitializationScript">
+   <property name="icon">
+    <iconset theme="initscript" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/initscript.png</normaloff>:/Default/icons/initscript.png</iconset>
+   </property>
+   <property name="text">
+    <string>System breakpoint scripts</string>
+   </property>
+   <property name="statusTip">
+    <string>Set the script file to run automatically when the system breakpoint is reached.</string>
+   </property>
+  </action>
+  <action name="actionImportSettings">
+   <property name="icon">
+    <iconset theme="importsettings" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/importsettings.png</normaloff>:/Default/icons/importsettings.png</iconset>
+   </property>
+   <property name="text">
+    <string>Import settings...</string>
+   </property>
+   <property name="statusTip">
+    <string>Import settings from an external file</string>
+   </property>
+  </action>
+  <action name="actionCustomizeMenus">
+   <property name="icon">
+    <iconset theme="analysis" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/analysis.png</normaloff>:/Default/icons/analysis.png</iconset>
+   </property>
+   <property name="text">
+    <string>Customize menus</string>
+   </property>
+   <property name="statusTip">
+    <string>Open the Customize Menus dialog to hide infrequently used menu items into the &quot;more commands&quot; submenu.</string>
+   </property>
+  </action>
+  <action name="actionImportdatabase">
+   <property name="icon">
+    <iconset theme="database-import" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/database-import.png</normaloff>:/Default/icons/database-import.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Import database</string>
+   </property>
+   <property name="statusTip">
+    <string>Open an external database file to import data.</string>
+   </property>
+  </action>
+  <action name="actionExportdatabase">
+   <property name="icon">
+    <iconset theme="database-export" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/database-export.png</normaloff>:/Default/icons/database-export.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Export database</string>
+   </property>
+  </action>
+  <action name="actionPreviousTab">
+   <property name="icon">
+    <iconset theme="previous" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/previous.png</normaloff>:/Default/icons/previous.png</iconset>
+   </property>
+   <property name="text">
+    <string>Previous Tab</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the tab on the left.</string>
+   </property>
+  </action>
+  <action name="actionNextTab">
+   <property name="icon">
+    <iconset theme="next" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/next.png</normaloff>:/Default/icons/next.png</iconset>
+   </property>
+   <property name="text">
+    <string>Next Tab</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the tab on the right.</string>
+   </property>
+  </action>
+  <action name="actionPreviousView">
+   <property name="icon">
+    <iconset theme="previous" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/previous.png</normaloff>:/Default/icons/previous.png</iconset>
+   </property>
+   <property name="text">
+    <string>Previous View</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the tab history popup window and select more recently used tab.</string>
+   </property>
+  </action>
+  <action name="actionNextView">
+   <property name="icon">
+    <iconset theme="next" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/next.png</normaloff>:/Default/icons/next.png</iconset>
+   </property>
+   <property name="text">
+    <string>Next View</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the tab history popup window and select previously viewed tab.</string>
+   </property>
+  </action>
+  <action name="actionHideTab">
+   <property name="icon">
+    <iconset theme="hidetab" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/hidetab.png</normaloff>:/Default/icons/hidetab.png</iconset>
+   </property>
+   <property name="text">
+    <string>Hide Tab</string>
+   </property>
+   <property name="statusTip">
+    <string>Hide the current tab. The hidden tab can be reopened from the View menu.</string>
+   </property>
+  </action>
+  <action name="actionVariables">
+   <property name="icon">
+    <iconset theme="variables" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/variables.png</normaloff>:/Default/icons/variables.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Variables</string>
+   </property>
+   <property name="statusTip">
+    <string>Show a list of x64dbg variables. Equivalent command &quot;varlist&quot;</string>
+   </property>
+  </action>
+  <action name="actionRestartAdmin">
+   <property name="icon">
+    <iconset theme="uac" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/uac.png</normaloff>:/Default/icons/uac.png</iconset>
+   </property>
+   <property name="text">
+    <string>Restart as Admin</string>
+   </property>
+   <property name="statusTip">
+    <string>Restart x64dbg under Administrator privilege.</string>
+   </property>
+  </action>
+  <action name="actionPlugins">
+   <property name="icon">
+    <iconset theme="plugin" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/plugin.png</normaloff>:/Default/icons/plugin.png</iconset>
+   </property>
+   <property name="text">
+    <string>Plugins</string>
+   </property>
+   <property name="statusTip">
+    <string>Open http://plugins.x64dbg.com</string>
+   </property>
+  </action>
+  <action name="actionTrace">
+   <property name="icon">
+    <iconset theme="trace" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/trace.png</normaloff>:/Default/icons/trace.png</iconset>
+   </property>
+   <property name="text">
+    <string>Trace</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Trace tab.</string>
+   </property>
+  </action>
+  <action name="actionModules">
+   <property name="icon">
+    <iconset theme="lib" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/lib.png</normaloff>:/Default/icons/lib.png</iconset>
+   </property>
+   <property name="text">
+    <string>Modules</string>
+   </property>
+   <property name="statusTip">
+    <string>Show the Symbols tab. Note that the Modules list is in the symbols tab.</string>
+   </property>
+  </action>
+  <action name="action_Theme">
+   <property name="text">
+    <string>&amp;Theme</string>
+   </property>
+  </action>
+  <action name="actionDefaultTheme">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Default</string>
+   </property>
+  </action>
+  <action name="actionDbsave">
+   <property name="icon">
+    <iconset theme="binary_save" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/binary_save.png</normaloff>:/Default/icons/binary_save.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save database</string>
+   </property>
+   <property name="statusTip">
+    <string>Save all data. The database will be automatically saved when debugging is stopped.</string>
+   </property>
+  </action>
+  <action name="actionDbload">
+   <property name="icon">
+    <iconset theme="arrow-restart" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/arrow-restart.png</normaloff>:/Default/icons/arrow-restart.png</iconset>
+   </property>
+   <property name="text">
+    <string>Re&amp;load database</string>
+   </property>
+   <property name="statusTip">
+    <string>Discard all modifications and read all data from disk.</string>
+   </property>
+  </action>
+  <action name="actionDbrecovery">
+   <property name="icon">
+    <iconset theme="help" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/help.png</normaloff>:/Default/icons/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Restore backup database</string>
+   </property>
+   <property name="statusTip">
+    <string>Read data from the backup database to recover from database corruption.</string>
+   </property>
+  </action>
+  <action name="actionDbclear">
+   <property name="icon">
+    <iconset theme="crash_dump" resource="../../resource.qrc">
+     <normaloff>:/Default/icons/crash_dump.png</normaloff>:/Default/icons/crash_dump.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Clear database</string>
+   </property>
+   <property name="statusTip">
+    <string>Clear all data.</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+   <property name="statusTip">
+    <string>Display information about Qt</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="../../resource.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
